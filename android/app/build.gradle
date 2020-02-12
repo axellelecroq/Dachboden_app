@@ -53,6 +53,22 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "app"
+
+    productFlavors {
+        dev {
+            dimension "app"
+            resValue "string", "app_name", "Dev Dachboden"
+            applicationId "de.derdachboden.dachboden_app.dev"
+            versionNameSuffix "-dev"
+        }
+        prod {
+            dimension "app"
+            resValue "string", "app_name", "Dachboden"
+            applicationId "de.derdachboden.dachboden_app"
+        }
+    }
 }
 
 flutter {
