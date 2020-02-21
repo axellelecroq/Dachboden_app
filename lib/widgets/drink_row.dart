@@ -42,6 +42,7 @@ class _DrinkRowState extends State<DrinkRow> {
         Padding(
           padding: const EdgeInsets.all(4.5),
           child: FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 Provider.of<DrinksNotifier>(context, listen: false)
                     .increment(widget.index);
@@ -53,6 +54,7 @@ class _DrinkRowState extends State<DrinkRow> {
         Padding(
           padding: const EdgeInsets.all(4.5),
           child: FloatingActionButton(
+            heroTag: null,
             onPressed: () {
               Provider.of<DrinksNotifier>(context, listen: false)
                   .decrement(widget.index);

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1032810683151",
+    "firebase_url": "https://dachboden-app-dev.firebaseio.com",
+    "project_id": "dachboden-app-dev",
+    "storage_bucket": "dachboden-app-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032810683151:android:0c335527a43c80b0e7bc7a",
+        "android_client_info": {
+          "package_name": "de.derdachboden.dachboden_app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032810683151-8h885nih9lk08pv22foq2bf9771egiq5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFqro0AVkGXgi6Ys7BZ1tfQSfp7dW4v5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032810683151-8h885nih9lk08pv22foq2bf9771egiq5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
