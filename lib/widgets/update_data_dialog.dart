@@ -1,22 +1,40 @@
+import 'package:Dachboden/routes/werkzeugsuche_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CreateDataDialog extends StatefulWidget {
+class UpdateDataDialog extends StatefulWidget {
+  UpdateDataDialog(this.searchResult);
+
+  final Document searchResult;
+
   @override
-  _CreateDataDialogState createState() => _CreateDataDialogState();
+  _UpdateDataDialogState createState() => _UpdateDataDialogState();
 }
 
-void createRecord(String name, String boxID) {
-  Firestore.instance
-      .collection('tools')
-      .document()
-      .setData({'name': name, 'boxID': boxID}, merge: true);
-}
+class _UpdateDataDialogState extends State<UpdateDataDialog> {
+  TextEditingController nameController;
+  TextEditingController boxIDController;
 
-class _CreateDataDialogState extends State<CreateDataDialog> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController boxIDController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController(text: widget.searchResult.name);
+    boxIDController = TextEditingController(text: widget.searchResult.boxID);
+  }
+
+  void updateData() {
+    Firestore.instance
+        .collection('tools')
+        .document(widget.searchResult.documentID)
+        .updateData(
+      {
+        'name': nameController.text,
+        'boxID': boxIDController.text,
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -42,7 +60,7 @@ class _CreateDataDialogState extends State<CreateDataDialog> {
         ],
       ),
       title: Text(
-        'Werkzeug einfügen',
+        'Werkzeug bearbeiten',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 20,
@@ -58,12 +76,8 @@ class _CreateDataDialogState extends State<CreateDataDialog> {
             child: Text('ABBRECHEN')),
         FlatButton(
             onPressed: () {
-              if (nameController.text == '' || boxIDController.text == '') {
-                return;
-              }
-              createRecord(nameController.text, boxIDController.text);
-              nameController.text = '';
-              boxIDController.text = '';
+              updateData();
+              Navigator.of(context).pop();
             },
             child: Text('OK'))
       ],

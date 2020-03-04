@@ -41,7 +41,7 @@ class _HomeRouteState extends State<HomeRoute> {
     );
   }
 
-  _buildPayRow() {
+  Widget _buildPayRow() {
     final drinks = Provider.of<DrinksNotifier>(context).drinks;
 
     return Padding(
